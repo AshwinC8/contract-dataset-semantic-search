@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Node
+node_modules/
+dist/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Data
+data/
+extracted/
+*.pdf
+
+# Checkpoints
+.checkpoint.db
+.process_checkpoint.db
+
+# Docker
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Milvus/MinIO data (for local dev)
+milvus_data/
+minio_data/
+etcd_data/
+
+# SSL certs
+nginx/ssl/*.pem
+
+# data
+contract_embeddings_2022.jsonl.gz

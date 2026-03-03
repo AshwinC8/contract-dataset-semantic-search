@@ -1,0 +1,30 @@
+# Contract Search - Full Dependencies
+
+# Build tools (required for grpcio on Python 3.12+)
+setuptools>=65.0.0
+
+# Vector database
+qdrant-client>=1.7.0
+
+# Embeddings
+sentence-transformers>=2.2.2
+numpy>=1.24.0
+
+# PyTorch - CPU version by default
+# For GPU (CUDA) support on Python 3.11/3.12:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+# Note: Python 3.13 doesn't have CUDA wheels yet (as of Feb 2026)
+torch>=2.0.0
+
+# PDF Processing
+PyMuPDF>=1.24.0
+
+# Backend
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.3
+pydantic-settings>=2.1.0
+python-dotenv>=1.0.0
+
+# Utils
+tqdm>=4.66.0

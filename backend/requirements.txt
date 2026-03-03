@@ -1,0 +1,22 @@
+# Backend dependencies
+
+# Vector database
+qdrant-client>=1.7.0
+
+# Embeddings
+sentence-transformers>=2.2.2
+numpy>=1.24.0
+
+# PyTorch - CPU version by default
+# For GPU (CUDA) support on Python 3.11/3.12:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu121
+torch>=2.0.0
+
+# API
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+pydantic>=2.5.3
+pydantic-settings>=2.1.0
+
+# Utils
+python-multipart>=0.0.6

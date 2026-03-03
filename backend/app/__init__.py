@@ -1,0 +1,1 @@
+"""Contract Search Backend."""

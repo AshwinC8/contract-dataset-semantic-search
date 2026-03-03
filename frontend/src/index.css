@@ -1,0 +1,516 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================================
+   SWISS MINIMALISM - PRECISION LEGAL
+   A design system built on mathematical precision, stark contrasts,
+   and typographic hierarchy. Every pixel is intentional.
+   ============================================================================ */
+
+@layer base {
+  :root {
+    /* Core palette - stark and precise */
+    --color-bg-primary: #ffffff;
+    --color-bg-secondary: #fafafa;
+    --color-bg-tertiary: #f0f0f0;
+    --color-text-primary: #0a0a0a;
+    --color-text-secondary: #404040;
+    --color-text-muted: #6b6b6b;
+    --color-border: #e0e0e0;
+    --color-border-strong: #c0c0c0;
+
+    /* Primary accent - precise red */
+    --color-accent: #dc2626;
+    --color-accent-light: #fef2f2;
+    --color-accent-dark: #991b1b;
+
+    /* Secondary accent - subtle blue for info/links */
+    --color-info: #2563eb;
+    --color-info-light: #eff6ff;
+
+    /* Functional colors */
+    --color-success: #16a34a;
+    --color-highlight: #fef9c3;
+
+    /* Spacing scale (4px base) */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 20px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-10: 40px;
+    --space-12: 48px;
+    --space-16: 64px;
+  }
+
+  .dark {
+    --color-bg-primary: #0a0a0a;
+    --color-bg-secondary: #141414;
+    --color-bg-tertiary: #1f1f1f;
+    --color-text-primary: #f5f5f5;
+    --color-text-secondary: #b0b0b0;
+    --color-text-muted: #808080;
+    --color-border: #2a2a2a;
+    --color-border-strong: #404040;
+    --color-accent: #ef4444;
+    --color-accent-light: #1c1917;
+    --color-accent-dark: #fca5a5;
+    --color-info: #60a5fa;
+    --color-info-light: #172554;
+    --color-highlight: #422006;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: 'ss01', 'ss02', 'cv01';
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-primary);
+    font-size: 14px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+
+  /* Precision scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border-strong);
+    border-radius: 0;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-text-muted);
+  }
+
+  /* Selection */
+  ::selection {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  /* Focus states - precise outline */
+  *:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* ========== TYPOGRAPHY ========== */
+
+  .text-display {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .text-mono {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.875em;
+    letter-spacing: -0.02em;
+  }
+
+  .text-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+  }
+
+  /* ========== INPUTS ========== */
+
+  .input-swiss {
+    width: 100%;
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-primary);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s ease;
+  }
+
+  .input-swiss::placeholder {
+    color: var(--color-text-muted);
+  }
+
+  .input-swiss:hover {
+    border-color: var(--color-border-strong);
+  }
+
+  .input-swiss:focus {
+    outline: none;
+    border-color: var(--color-text-primary);
+  }
+
+  /* Select dropdown styling */
+  select.input-swiss {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    padding-right: 24px;
+  }
+
+  .dark select.input-swiss {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23808080' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+
+  /* ========== BUTTONS ========== */
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-5);
+    background-color: var(--color-text-primary);
+    color: var(--color-bg-primary);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    border: none;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-accent);
+  }
+
+  .btn-primary:active {
+    transform: scale(0.98);
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    background-color: transparent;
+    color: var(--color-text-secondary);
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--color-text-primary);
+    color: var(--color-text-primary);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-2);
+    background: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease;
+  }
+
+  .btn-ghost:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* ========== CARDS ========== */
+
+  .card-swiss {
+    background-color: var(--color-bg-primary);
+    border: 1px solid var(--color-border);
+    padding: var(--space-4);
+    transition: all 0.2s ease;
+  }
+
+  .card-swiss-interactive {
+    cursor: pointer;
+  }
+
+  .card-swiss-interactive:hover {
+    border-color: var(--color-text-primary);
+  }
+
+  .card-swiss-active {
+    border-color: var(--color-accent);
+    border-width: 2px;
+    padding: calc(var(--space-4) - 1px);
+  }
+
+  /* ========== TAGS & BADGES ========== */
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-bg-tertiary);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--color-text-secondary);
+  }
+
+  .tag-accent {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  /* ========== HTML DOCUMENT ISOLATION ========== */
+  /* Ensures HTML documents render correctly in dark mode */
+  .html-content-isolated {
+    /* Force light mode rendering */
+    color-scheme: light !important;
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .html-content-isolated * {
+    /* Ensure all child elements inherit light mode colors */
+    color: inherit;
+  }
+
+  .html-content-isolated a {
+    color: #0066cc;
+  }
+
+  /* Document highlight in HTML viewer */
+  .doc-highlight {
+    background-color: #fef08a !important;
+    color: #000 !important;
+    padding: 2px 4px;
+    border-radius: 2px;
+  }
+
+  /* ========== DIVIDERS ========== */
+
+  .divider-h {
+    height: 1px;
+    background-color: var(--color-border);
+  }
+
+  .divider-v {
+    width: 1px;
+    background-color: var(--color-border);
+  }
+
+  /* ========== STATUS ========== */
+
+  .status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .status-online {
+    background-color: var(--color-success);
+  }
+
+  .status-offline {
+    background-color: var(--color-accent);
+  }
+
+  /* ========== HIGHLIGHT MATCH ========== */
+
+  .match-highlight {
+    background-color: var(--color-accent-light);
+    border-left: 3px solid var(--color-accent);
+    padding-left: calc(var(--space-4) - 3px);
+  }
+
+  /* ========== SKELETON ========== */
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--color-bg-tertiary) 0%,
+      var(--color-bg-secondary) 50%,
+      var(--color-bg-tertiary) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-pulse {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* ========== GRID LINES (Swiss style) ========== */
+
+  .grid-lines {
+    background-image:
+      linear-gradient(var(--color-border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+    background-size: var(--space-8) var(--space-8);
+    background-position: -1px -1px;
+  }
+
+  /* ========== TABS ========== */
+
+  .tab-swiss {
+    padding: var(--space-3) var(--space-4);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s ease;
+    cursor: pointer;
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+  }
+
+  .tab-swiss:hover {
+    color: var(--color-text-primary);
+  }
+
+  .tab-swiss-active {
+    color: var(--color-text-primary);
+    border-bottom-color: var(--color-text-primary);
+  }
+
+  /* ========== SCORE METER ========== */
+
+  .score-bar {
+    height: 3px;
+    background-color: var(--color-bg-tertiary);
+    overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+  }
+}
+
+@layer utilities {
+  /* Precise spacing utilities */
+  .gap-swiss { gap: var(--space-4); }
+  .gap-swiss-sm { gap: var(--space-2); }
+  .gap-swiss-lg { gap: var(--space-6); }
+
+  /* Border utilities */
+  .border-swiss { border: 1px solid var(--color-border); }
+  .border-swiss-strong { border: 1px solid var(--color-border-strong); }
+
+  /* Text utilities */
+  .text-balance { text-wrap: balance; }
+
+  /* Number formatting */
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* ============================================================================
+   ANIMATIONS - Subtle and precise
+   ============================================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.25s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.2s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.2s ease-out forwards;
+}
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 30ms; }
+.stagger-2 { animation-delay: 60ms; }
+.stagger-3 { animation-delay: 90ms; }
+.stagger-4 { animation-delay: 120ms; }
+.stagger-5 { animation-delay: 150ms; }
+.stagger-6 { animation-delay: 180ms; }
+.stagger-7 { animation-delay: 210ms; }
+.stagger-8 { animation-delay: 240ms; }
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
